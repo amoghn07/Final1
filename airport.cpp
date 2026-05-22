@@ -23,12 +23,30 @@ int main(){
     //each airport visited.
     while (fin >> start) {
         fin >> dest;
-        air[start]++;
+        //incrementing duplicate aiports by one to find frequency
+        air[start]++; 
         air[dest]++;
     }
     //range based for loop to print out map
     for (auto a : air) {
         cout << a.first << " " << a.second << endl;
+    }
+
+    int max = 0;
+    //range based for loop iterates through all values and finds largest
+    for (auto a : air) {
+        if (a.second > max) {
+            max = a.second;
+        }
+    }
+
+    cout << "\nBusiest airport(s) with count " << max << ":\n";
+    //incase there are ties, using another range based loop to print all 
+    //airports that match max val
+    for (auto a : air) {
+        if (a.second == max) {
+            cout << a.first << " " << a.second << endl;
+        }
     }
 
 
