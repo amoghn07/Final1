@@ -4,6 +4,8 @@
 #include <fstream>
 using namespace std;
 
+void inRange(map<string, int>, int, int);
+
 int main(){
     ifstream fin;
     map <string, int> air;
@@ -12,7 +14,7 @@ int main(){
     fin.open("210-final-1-SP26.txt");
     //error handling
     if (!fin) {
-        cerr << "Error opening file." << endl;
+        cerr << "Error opening file." << endl; 
         return 1;
     }
 
@@ -49,9 +51,17 @@ int main(){
         }
     }
 
-
-
     //closing file
     fin.close();
     return 0;
+}
+
+void inRange(map<string, int> m, int lower, int upper){
+    //using range based loop to check for values of map within range and printing
+    for (auto a : m){
+        if (a.second <= upper && a.second >= lower){
+            cout << a.first << " " << a.second << endl;
+        }
+    }
+
 }
