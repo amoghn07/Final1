@@ -51,6 +51,10 @@ int main(){
         }
     }
 
+    //driver for M3
+    inRange(air, 5, 8);
+    inRange(air, 10, 15);
+
     //closing file
     fin.close();
     return 0;
@@ -58,6 +62,7 @@ int main(){
 
 void inRange(map<string, int> m, int lower, int upper){
     //using range based loop to check for values of map within range and printing
+    cout << "\nAirports with traffic in range [" << lower << ", " << upper <<"]:\n";
     for (auto a : m){
         if (a.second <= upper && a.second >= lower){
             cout << a.first << " " << a.second << endl;
