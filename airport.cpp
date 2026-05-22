@@ -27,8 +27,8 @@ int main(){
         air[dest]++;
     }
     //range based for loop to print out map
-    for (a : air) {
-        
+    for (auto a : air) {
+        cout << a.first << " " << a.second << endl;
     }
 
 
