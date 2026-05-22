@@ -14,6 +14,7 @@ int main(){
     fin.open("210-final-1-SP26.txt");
     //error handling
     if (!fin) {
+        //unbuffered version of cout -- w3school
         cerr << "Error opening file." << endl; 
         return 1;
     }
@@ -29,7 +30,12 @@ int main(){
         air[start]++; 
         air[dest]++;
     }
+
+    //closing file
+    fin.close();
+
     //range based for loop to print out map
+    cout << "All airport traffic counts:\n";
     for (auto a : air) {
         cout << a.first << " " << a.second << endl;
     }
@@ -53,10 +59,8 @@ int main(){
 
     //driver for M3
     inRange(air, 5, 8);
-    inRange(air, 10, 15);
+    inRange(air, 9, 12);
 
-    //closing file
-    fin.close();
     return 0;
 }
 
